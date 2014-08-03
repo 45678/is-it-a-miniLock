@@ -1,0 +1,16 @@
+{
+  "name": "is-it-a-minilock-id",
+  "version": "0.0.0",
+  "description": "Paste a miniLock ID to check it yo.",
+  "main": "index.html",
+  "author": "undefined@undefined",
+  "license": "Public Domain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git@github.com/45678/is-it-a-minilock-id.git"
+  },
+  "dependencies": {
+    "miniLockLib": "git+https://git@github.com/45678/miniLockLib.git",
+    "zepto": "0.0.4"
+  }
+}

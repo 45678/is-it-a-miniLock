@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: url('inconsolata.woff') format('woff');
+}
+
+/* Basic styles */
+
+body {
+  margin: 0; padding: 0;
+  color: hsla(0, 0%, 100%, 0.75);
+  font-family: 'Inconsolata', monospace;
+  font-size: 13px;
+  line-height: 15px;
+  transition: background 500ms ease-out;
+  text-align: center;
+}
+
+body.acceptable {
+  background:hsl(150, 66%, 33%);
+}
+body.unacceptable {
+  background:hsl(350, 66%, 27%);
+}
+body.blank,body {
+  background:hsl(55, 10%, 30%);
+}
+
+label {
+  user-select: none;
+}
+
+div {
+  position: relative;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+}
+
+input, code {
+  display: block;
+  box-sizing: border-box;
+  line-height: 24px;
+  font-size: 22px;
+  letter-spacing: -0.1px;
+  font-family: inherit;
+  text-align: center;
+}
+
+/* Layout of the form */
+
+div.sleeve {
+  position: absolute;
+  top: 33%; left: 0; right: 0;
+  height: 0px;
+}
+
+form {
+  width: 500px;
+  margin: auto;
+}
+
+/* Form header */
+
+form header {
+  position: absolute;
+  top: -50px; left: 0; right: 0;
+  height: 15px;
+}
+
+form label {
+  display: none;
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+form label,
+form.unacceptable label.acceptable,
+form.acceptable label.unacceptable {
+  visibility: hidden;
+}
+
+form.acceptable label.acceptable,
+form.unacceptable label.unacceptable {
+  visibility: visible;
+}
+
+label.blank, label.unacceptable {
+  color: hsla(0, 0%, 100%, 0.33);
+}
+
+form label.blank {
+  color: hsla(0, 0%, 100%, 0.33);
+  visibility: visible;
+}
+form.acceptable label.blank,
+form.unacceptable label.blank {
+  visibility: hidden;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    left: 0px;
+  }
+  10%, 30%, 50%, 70%, 90% {
+    left: -20px;
+  }
+  20%, 40%, 60%, 80% {
+    left: 20px;
+  }
+}
+
+form.unacceptable header label.unacceptable {
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: 1.2s;
+  -webkit-animation-delay: 500ms;
+}
+
+/* miniLock ID input */
+
+div.input {
+  margin: -30px 0px 0px 0px;
+}
+
+div.input > div.text_container {
+  display: block;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+input {
+  width: 100%;
+  margin: 0;
+  padding: 9px;
+  color: hsla(0, 0%, 100%, 0.75);
+  background: transparent;
+  border: 1px dotted hsla(208, 0%, 100%, 0.4);
+}
+body.acceptable input {
+  border: 1px solid hsla(208, 0%, 100%, 0.4);
+}
+input::-webkit-input-placeholder {
+  color: hsla(0, 0%, 100%, 0);
+  transition: none;
+}
+body.blank input::-webkit-input-placeholder {
+  color: hsla(0, 0%, 100%, 0.66);
+  transition: color 1s linear 1s;
+}
+body.acceptable input::selection {
+  background: hsla(0, 0%, 100%, 0.75);
+  color: hsl(150, 100%, 25%);
+}
+body.unacceptable input::selection {
+  background: hsla(0, 0%, 100%, 0.75);
+  color: hsl(350, 100%, 25%);
+}
+
+/* Public key graphic */
+
+#public_key {
+  height: 255px;
+  width: 222px;
+  height: 255px;
+  line-height: 255px;
+  margin: 15px auto auto;
+}
+
+#public_key img {
+  width: 5px;
+  height: 255px;
+  height: 0px;
+  vertical-align: bottom;
+  background-color: hsla(0, 0%, 100%, 0.05);
+  margin: 0px 1px 0px 1px;
+}
+#public_key img:first-child {
+  margin: 0px 1px 0px 0px;
+}
+#public_key img:last-child {
+  margin: 0px 0px 0px 1px;
+}
+body.acceptable #public_key img {
+  background-color: hsla(0, 0%, 100%, 0.33);
+}
+
+/* Checksum */
+
+div.checksum {
+  margin: 5px -14px 5px -6px;
+  height: 15px;
+  overflow: hidden;
+}
+div.checksum a {
+  position: absolute;
+  left: 0; right: 0;
+  height: 15px;
+  display:block;
+  color: hsla(0, 0%, 100%, 0.5);
+  top: -15px;
+  transition: none;
+}
+body.acceptable div.checksum a {
+  top: 0px;
+  transition: top 250ms ease-out 1000ms;
+}
+
+/* Demo ID */
+
+div.demo {
+  position: fixed;
+  bottom: -45px;
+  left: 0px;
+  right: 0px;
+  color: hsla(0, 0%, 100%, 0.33);
+}
+
+body.blank div.demo {
+  bottom: 15px;
+  transition: bottom 500ms ease-out 4.5s;
+}
+
+code::selection {
+  background: hsla(0, 0%, 100%, 0.75);
+  color: hsl(0, 0%, 25%);
+}
