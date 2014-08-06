@@ -1,8 +1,6 @@
 $(document).ready(function(){
 'use strict';
 
-miniLockLib.pathToScripts = 'node_modules/miniLockLib'
-
 $(document).ready(function(event){
   setTimeout(function(){
     $('#minilock_id input').trigger('input')
@@ -36,12 +34,12 @@ $(document).on('input', '#minilock_id', function(event) {
 })
 
 function renderPublicKey(id) {
-  var bytes = Base58.decode(id)
+  var publicKey = miniLockLib.ID.decode(id)
   var byteDuration = 30
   $('#public_key').removeClass('blank')
   $('#public_key img').each(function(index, tag){
     $(tag).css({
-      'height': bytes[index] + 'px',
+      'height': publicKey[index] + 'px',
       'transition': 'height 100ms ease-out '+(index*byteDuration)+'ms, background-color 0ms linear '+((index*byteDuration)+0)+'ms'
     })
   })
@@ -55,33 +53,6 @@ function renderBlankPublicKey() {
       'transition': 'height 500ms ease-out 500ms'
     })
   }
-}
-
-miniLockLib.ID = {}
-
-miniLockLib.ID.isAcceptable = function(id) {
-  var base58Match = new RegExp(
-    '^[1-9ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]+$'
-  )
-  if (
-    (id.length > 55) ||
-    (id.length < 40)
-  ) {
-    return false
-  }
-  if (!base58Match.test(id)) {
-    return false
-  }
-  var bytes = Base58.decode(id)
-  if (bytes.length !== 33) {
-    return false
-  }
-  var hash = new BLAKE2s(1)
-  hash.update(bytes.subarray(0, 32))
-  if (hash.digest()[0] !== bytes[32]) {
-    return false
-  }
-  return true
 }
 
 })
