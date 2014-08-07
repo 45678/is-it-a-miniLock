@@ -14,9 +14,9 @@ $(document).on('mousedown', function(event) {
   var input = $('#minilock_id input').get(0)
   var length = input.value.length
   if (window.getSelection().type === 'Range') {
-    input.setSelectionRange(length, length);
+    input.setSelectionRange(length, length)
   } else {
-    input.setSelectionRange(0, length);
+    input.setSelectionRange(0, length)
   }
 })
 
