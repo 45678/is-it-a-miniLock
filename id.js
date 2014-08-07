@@ -3,6 +3,7 @@ $(document).ready(function(){
 
 $(document).ready(function(event){
   setTimeout(function(){
+    $('#minilock_id input').val(location.search.split('?')[1])
     $('#minilock_id input').trigger('input')
   }, 1)
 })
