@@ -1,4 +1,4 @@
-if (location.hostname === "45678.github.io" && location.protocol !=== "https:") {
+if (location.hostname === "45678.github.io" && location.protocol !== "https:") {
   window.location = location.toString().replace("http:", "https:")
 }
 
