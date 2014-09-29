@@ -10,7 +10,7 @@
     "url": "git+https://git@github.com/45678/is-it-a-minilock-id.git"
   },
   "dependencies": {
-    "miniLockLib": "git+https://git@github.com/45678/miniLockLib.git",
+    "miniLockLib": "45678/miniLockLib.git",
     "zepto": "0.0.4"
   }
 }
